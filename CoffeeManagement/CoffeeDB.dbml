@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Coffee" Class="CoffeeDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=laptop-0cosk050\sqlexpress01;Initial Catalog=Coffee;Integrated Security=True" SettingsObjectName="CoffeeManagement.Properties.Settings" SettingsPropertyName="CoffeeConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Category" Member="Categories">
+    <Type Name="Category">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="category_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Category_Coffee" Member="Coffees" ThisKey="id" OtherKey="category_id" Type="Coffee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Coffee" Member="Coffees">
+    <Type Name="Coffee">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="category_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="Coffee_Order_Detail" Member="Order_Details" ThisKey="id" OtherKey="coffee_id" Type="Order_Detail" />
+      <Association Name="Category_Coffee" Member="Category" ThisKey="category_id" OtherKey="id" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Order_Detail" Member="Order_Details">
+    <Type Name="Order_Detail">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="order_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="coffee_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Coffee_Order_Detail" Member="Coffee" ThisKey="coffee_id" OtherKey="id" Type="Coffee" IsForeignKey="true" />
+      <Association Name="Order_Order_Detail" Member="Order" ThisKey="order_id" OtherKey="order_id" Type="Order" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orders" Member="Orders">
+    <Type Name="Order">
+      <Column Name="order_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="customer_id" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="order_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Order_Order_Detail" Member="Order_Details" ThisKey="order_id" OtherKey="order_id" Type="Order_Detail" />
+      <Association Name="User_Order" Member="User" ThisKey="customer_id" OtherKey="user_name" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="user_name" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="full_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="User_Order" Member="Orders" ThisKey="user_name" OtherKey="customer_id" Type="Order" />
+    </Type>
+  </Table>
+</Database>
