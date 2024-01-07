@@ -42,7 +42,7 @@
             // 
             this.lblAdd.AutoSize = true;
             this.lblAdd.Font = new System.Drawing.Font("Comic Sans MS", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdd.Location = new System.Drawing.Point(276, 52);
+            this.lblAdd.Location = new System.Drawing.Point(84, 49);
             this.lblAdd.Name = "lblAdd";
             this.lblAdd.Size = new System.Drawing.Size(451, 73);
             this.lblAdd.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(339, 470);
+            this.txtPrice.Location = new System.Drawing.Point(147, 467);
             this.txtPrice.Multiline = true;
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(358, 45);
@@ -59,7 +59,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(335, 423);
+            this.label2.Location = new System.Drawing.Point(143, 420);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 20);
             this.label2.TabIndex = 2;
@@ -68,7 +68,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(335, 297);
+            this.label3.Location = new System.Drawing.Point(143, 294);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 20);
             this.label3.TabIndex = 4;
@@ -76,7 +76,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(339, 337);
+            this.txtName.Location = new System.Drawing.Point(147, 334);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(358, 40);
@@ -85,7 +85,7 @@
             // cboxCategory
             // 
             this.cboxCategory.FormattingEnabled = true;
-            this.cboxCategory.Location = new System.Drawing.Point(339, 222);
+            this.cboxCategory.Location = new System.Drawing.Point(147, 219);
             this.cboxCategory.Name = "cboxCategory";
             this.cboxCategory.Size = new System.Drawing.Size(358, 28);
             this.cboxCategory.TabIndex = 5;
@@ -93,7 +93,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(335, 190);
+            this.label4.Location = new System.Drawing.Point(143, 187);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 20);
             this.label4.TabIndex = 6;
@@ -101,7 +101,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(414, 538);
+            this.btnAdd.Location = new System.Drawing.Point(222, 535);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(154, 51);
             this.btnAdd.TabIndex = 7;
@@ -113,7 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 661);
+            this.ClientSize = new System.Drawing.Size(627, 661);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cboxCategory);

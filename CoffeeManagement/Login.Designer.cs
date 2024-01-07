@@ -41,7 +41,7 @@
             // 
             this.lblSignIn.AutoSize = true;
             this.lblSignIn.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSignIn.Location = new System.Drawing.Point(228, 9);
+            this.lblSignIn.Location = new System.Drawing.Point(81, 9);
             this.lblSignIn.Name = "lblSignIn";
             this.lblSignIn.Size = new System.Drawing.Size(296, 100);
             this.lblSignIn.TabIndex = 0;
@@ -49,9 +49,9 @@
             // 
             // btnSignIn
             // 
-            this.btnSignIn.Location = new System.Drawing.Point(196, 339);
+            this.btnSignIn.Location = new System.Drawing.Point(100, 345);
             this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.Size = new System.Drawing.Size(323, 54);
+            this.btnSignIn.Size = new System.Drawing.Size(277, 54);
             this.btnSignIn.TabIndex = 1;
             this.btnSignIn.Text = "Sign In";
             this.btnSignIn.UseVisualStyleBackColor = true;
@@ -59,14 +59,14 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(217, 162);
+            this.txtUserName.Location = new System.Drawing.Point(100, 162);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(277, 26);
             this.txtUserName.TabIndex = 2;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(217, 245);
+            this.txtPassword.Location = new System.Drawing.Point(100, 245);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(277, 26);
             this.txtPassword.TabIndex = 3;
@@ -75,7 +75,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(217, 136);
+            this.label1.Location = new System.Drawing.Point(100, 136);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 23);
             this.label1.TabIndex = 4;
@@ -85,7 +85,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(217, 219);
+            this.label2.Location = new System.Drawing.Point(100, 219);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 23);
             this.label2.TabIndex = 5;
@@ -95,19 +95,19 @@
             // 
             this.linkSignIn.AutoSize = true;
             this.linkSignIn.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.linkSignIn.Location = new System.Drawing.Point(293, 426);
+            this.linkSignIn.Location = new System.Drawing.Point(150, 422);
             this.linkSignIn.Name = "linkSignIn";
-            this.linkSignIn.Size = new System.Drawing.Size(140, 20);
+            this.linkSignIn.Size = new System.Drawing.Size(172, 20);
             this.linkSignIn.TabIndex = 6;
             this.linkSignIn.TabStop = true;
-            this.linkSignIn.Text = "Have an Account?";
+            this.linkSignIn.Text = "Don\'t have an  account";
             this.linkSignIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSignIn_LinkClicked);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 505);
+            this.ClientSize = new System.Drawing.Size(455, 505);
             this.Controls.Add(this.linkSignIn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

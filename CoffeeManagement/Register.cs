@@ -56,5 +56,13 @@ namespace CoffeeManagement
             MessageBox.Show("Register successful.", "Account Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Login login = new Login();
+            this.Hide();
+            login.ShowDialog();
+            this.Show();
+        }
     }
 }

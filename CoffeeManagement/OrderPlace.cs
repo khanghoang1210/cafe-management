@@ -120,6 +120,22 @@ namespace CoffeeManagement
         }
 
         int amount;
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            List<String> listItem = new List<string>();
+            List<String> listQty = new List<string>();
+            List<String> listPrice = new List<string>();
+            for (int i = 0; i < dgvCart.Rows.Count - 1; i++)
+            {
+                listItem.Add(dgvCart.Rows[i].Cells[0].Value.ToString());
+                listQty.Add(dgvCart.Rows[i].Cells[2].Value.ToString());
+                listPrice.Add(dgvCart.Rows[i].Cells[3].Value.ToString());
+            }
+            Bill bill = new Bill(listItem, listQty, listPrice, lblTotalAmount.Text);
+            bill.ShowDialog();
+        }
+
         private void btnRemove_Click(object sender, EventArgs e)
         {
             dgvCart.Rows.RemoveAt(this.dgvCart.SelectedRows[0].Index);
