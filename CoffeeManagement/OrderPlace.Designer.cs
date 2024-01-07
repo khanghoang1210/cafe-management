@@ -30,8 +30,12 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dgvCart = new System.Windows.Forms.DataGridView();
+            this.colCoffee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
             this.btnPay = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,10 +54,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnPlus = new System.Windows.Forms.Button();
             this.btnMinus = new System.Windows.Forms.Button();
-            this.colCoffee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,6 +82,35 @@
             this.dgvCart.RowTemplate.Height = 28;
             this.dgvCart.Size = new System.Drawing.Size(579, 260);
             this.dgvCart.TabIndex = 15;
+            this.dgvCart.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCart_CellClick);
+            // 
+            // colCoffee
+            // 
+            this.colCoffee.HeaderText = "Item";
+            this.colCoffee.MinimumWidth = 8;
+            this.colCoffee.Name = "colCoffee";
+            this.colCoffee.Width = 80;
+            // 
+            // colUnit
+            // 
+            this.colUnit.HeaderText = "UnitPrice";
+            this.colUnit.MinimumWidth = 8;
+            this.colUnit.Name = "colUnit";
+            this.colUnit.Width = 80;
+            // 
+            // colQuan
+            // 
+            this.colQuan.HeaderText = "Quantity";
+            this.colQuan.MinimumWidth = 8;
+            this.colQuan.Name = "colQuan";
+            this.colQuan.Width = 80;
+            // 
+            // colPrice
+            // 
+            this.colPrice.HeaderText = "Price";
+            this.colPrice.MinimumWidth = 8;
+            this.colPrice.Name = "colPrice";
+            this.colPrice.Width = 80;
             // 
             // Total
             // 
@@ -92,15 +121,15 @@
             this.Total.TabIndex = 16;
             this.Total.Text = "Total";
             // 
-            // label7
+            // lblTotalAmount
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(590, 566);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 46);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "0.00 $";
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAmount.Location = new System.Drawing.Point(590, 566);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(130, 46);
+            this.lblTotalAmount.TabIndex = 17;
+            this.lblTotalAmount.Text = "0.00 $";
             // 
             // btnPay
             // 
@@ -164,6 +193,7 @@
             // 
             // txtItem
             // 
+            this.txtItem.Enabled = false;
             this.txtItem.Location = new System.Drawing.Point(451, 65);
             this.txtItem.Multiline = true;
             this.txtItem.Name = "txtItem";
@@ -190,6 +220,7 @@
             // 
             // txtPrice
             // 
+            this.txtPrice.Enabled = false;
             this.txtPrice.Location = new System.Drawing.Point(727, 65);
             this.txtPrice.Multiline = true;
             this.txtPrice.Name = "txtPrice";
@@ -210,6 +241,7 @@
             this.txtQuan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtQuan.Enabled = false;
             this.txtQuan.Location = new System.Drawing.Point(488, 155);
             this.txtQuan.Multiline = true;
             this.txtQuan.Name = "txtQuan";
@@ -227,6 +259,7 @@
             // 
             // txtTotal
             // 
+            this.txtTotal.Enabled = false;
             this.txtTotal.Location = new System.Drawing.Point(727, 155);
             this.txtTotal.Multiline = true;
             this.txtTotal.Name = "txtTotal";
@@ -273,34 +306,6 @@
             this.btnMinus.UseVisualStyleBackColor = true;
             this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
             // 
-            // colCoffee
-            // 
-            this.colCoffee.HeaderText = "Item";
-            this.colCoffee.MinimumWidth = 8;
-            this.colCoffee.Name = "colCoffee";
-            this.colCoffee.Width = 80;
-            // 
-            // colUnit
-            // 
-            this.colUnit.HeaderText = "UnitPrice";
-            this.colUnit.MinimumWidth = 8;
-            this.colUnit.Name = "colUnit";
-            this.colUnit.Width = 80;
-            // 
-            // colQuan
-            // 
-            this.colQuan.HeaderText = "Quantity";
-            this.colQuan.MinimumWidth = 8;
-            this.colQuan.Name = "colQuan";
-            this.colQuan.Width = 80;
-            // 
-            // colPrice
-            // 
-            this.colPrice.HeaderText = "Price";
-            this.colPrice.MinimumWidth = 8;
-            this.colPrice.Name = "colPrice";
-            this.colPrice.Width = 80;
-            // 
             // OrderPlace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -324,7 +329,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnPay);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lblTotalAmount);
             this.Controls.Add(this.Total);
             this.Controls.Add(this.dgvCart);
             this.Controls.Add(this.label1);
@@ -342,7 +347,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvCart;
         private System.Windows.Forms.Label Total;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblTotalAmount;
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Label label2;

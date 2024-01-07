@@ -31,10 +31,7 @@ namespace CoffeeManagement
 
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -114,6 +111,20 @@ namespace CoffeeManagement
             dgvCart.Rows[n].Cells[1].Value = txtPrice.Text;
             dgvCart.Rows[n].Cells[2].Value = txtQuan.Text;
             dgvCart.Rows[n].Cells[3].Value = txtTotal.Text;
+            total += int.Parse(txtTotal.Text);
+            lblTotalAmount.Text = total.ToString() + "$";
+        }
+        private void dgvCart_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            amount = int.Parse(dgvCart.Rows[e.RowIndex].Cells[3].Value.ToString());
+        }
+
+        int amount;
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            dgvCart.Rows.RemoveAt(this.dgvCart.SelectedRows[0].Index);
+            total -= amount;
+            lblTotalAmount.Text = total.ToString() + "$";
         }
     }
 }
