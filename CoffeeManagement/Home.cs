@@ -100,27 +100,50 @@ namespace CoffeeManagement
         {
             if (dvgCoffee.SelectedRows.Count != 0)
             {
-                AddForm.isEdit = true;
+
                 int coffeeIDSelect = int.Parse(this.dvgCoffee.SelectedRows[0].Cells[0].Value.ToString());
                 Coffee updatedCoffee = db.Coffees.Where(x => x.id == coffeeIDSelect).FirstOrDefault();
                 DataGridViewRow row = this.dvgCoffee.SelectedRows[0];
                 AddForm.selectedItem = (CoffeeOutput)row.DataBoundItem;
-
+                AddForm.isEdit = true;
                 AddForm addForm = new AddForm();
 
                 addForm.ShowDialog();
-                updatedCoffee = AddForm.coffee;
-                //updatedCoffee.name = AddForm.coffee.name;
-                //updatedCoffee.price = AddForm.coffee.price;
-                //updatedCoffee.Category.category_name = AddForm.coffee.Category.category_name;
-                //updatedCoffee.Category.id = AddForm.coffee.Category.id;
-                //db.Coffees.InsertOnSubmit(updatedCoffee);
+                updatedCoffee.name = AddForm.selectedItem.Name;
+                updatedCoffee.price = AddForm.selectedItem.Price;
+                var category = db.Categories.Where(x => x.category_name == AddForm.selectedItem.Category).FirstOrDefault();
+
+                updatedCoffee.Category = category;
+
                 db.SubmitChanges();
                 DisplayData();
-                //MessageBox.Show("Update successful.", "Coffee", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //this.Close();
             }
 
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int coffeeIDSelect = int.Parse(this.dvgCoffee.SelectedRows[0].Cells[0].Value.ToString());
+            Coffee deletedItem = db.Coffees.Where(x => x.id == coffeeIDSelect).FirstOrDefault();
+            string question = "Do you want to delete laptop:" + deletedItem.id;
+            DialogResult result = MessageBox.Show(question, "Delete", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                db.Coffees.DeleteOnSubmit(deletedItem);
+                db.SubmitChanges();
+            }
+            DisplayData();
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            //int coffeeIDSelect = int.Parse(this.dvgCoffee.SelectedRows[0].Cells[0].Value.ToString());
+            //Coffee addCartItem = db.Coffees.Where(x => x.id == coffeeIDSelect).FirstOrDefault();
+            //DataGridViewRow row = this.dvgCoffee.SelectedRows[0];
+            // OrderPlace.selectedItem = (CoffeeOutput)row.DataBoundItem;
+            OrderPlace order = new OrderPlace();
+            order.ShowDialog();
         }
     }
 }

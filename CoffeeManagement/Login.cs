@@ -14,6 +14,7 @@ namespace CoffeeManagement
     public partial class Login : Form
     {
         CoffeeDBDataContext db = new CoffeeDBDataContext();
+        public static User currentUser;
         public static Login OriginalForm;
         //public string startUpPath;
         public bool ResetLogin;
@@ -49,9 +50,10 @@ namespace CoffeeManagement
             }
             if (SpecificOne != null)
             {
-                AddForm bookingWindow = new AddForm();
+                Home home = new Home();
+                currentUser = SpecificOne;
                 this.Hide();
-                bookingWindow.ShowDialog();
+                home.ShowDialog();
                 this.Show();
             }
         }
